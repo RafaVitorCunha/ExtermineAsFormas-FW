@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <title>EXTERMINE as formas</title>
+  <style>
+    html,body{height:100%;margin:0;font-family:Arial,Helvetica,sans-serif;background:#0b1220;color:#e6eef8}
+    .container{display:flex;gap:16px;padding:18px}
+    #ui{width:200px;padding:12px;background:rgba(0,0,0,0.25);border-radius:8px}
+    canvas{border:1px solid #333;display:block;background:linear-gradient(#07101a,#08121b)}
+    tela{display:block}
+    small{color:#bcd}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div id="ui">
+      <h2><i>EXTERMINE</i> as Formas</h2>
+      <div>Pontos: <strong id="pontos">0</strong></div>
+      <div>Vidas: <strong id="vidas-num">2</strong></div>
+      <div>Nível: <strong id="nivel-num">1</strong></div>
+      <hr> 
+      <div><small>Movimento: Setas</small></div>
+      <div><small>Atirar: Barra de Espaço</small></div>
+      <hr>
+      <div><small>- Os losangos atiram projéteis.</small></div>
+      <div><small>- Os quadrados protejem os losangos.</small></div>
+      <div><small>- Os círculos são rápidos e bem resistentes.</small></div> 
+  </div>
+
+    <tela largura="800" altura="600">
+      <!-- Objetos de fundo -->
+      <arco px="500" py="300" raio="50" animarH="direita"></arco>
+      <arco px="200" py="400" raio="30" animarH="esquerda"></arco>
+      <arco px="50" py="300" raio="10" animarV="acima"></arco>
+      <retangulo px="100" py="100" largura="120" altura="80" cor="blue" animarH="direita"></retangulo>
+      <poligono px="400" py="300" raio="80" lados="5" cor="purple" animarV="abaixo"></poligono>
+
+      <!-- Fileiras -->
+      <fileira tipo="losango" count="7" spacing="70" y="60" vida="3" projSize="7" projSpeed="200" hSpeed="20"></fileira>
+      <fileira tipo="quadrado" count="7" spacing="90" y="130" vida="5" hSpeed="20"></fileira>
+
+      <!-- Inimígos específicós -->
+      <inimigo tipo="circulo" px="0" py="200" vida="15" velocidade="220" r="35"></inimigo>
+      <inimigo tipo="circulo" px="800" py="200" vida="15" velocidade="220" r="35"></inimigo>
+    </tela>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
